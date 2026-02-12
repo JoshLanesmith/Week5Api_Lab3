@@ -52,7 +52,7 @@ public class Program
         })
         .WithName("GetWeatherForecast");
 
-        app.MapGet("/hello", () => "Hello from your Azure API running .NET 10");
+        app.MapGet("/hello", () => "Hello from your Azure API running .NET 10. Does this work with the deploy hook?");
 
         app.Run();
     }
