@@ -22,12 +22,13 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+        if (app.Environment.IsDevelopment()) {
             app.MapOpenApi();
         }
+
+        // Always use swagger so that it shows when deployed to render
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         app.UseHttpsRedirection();
 
@@ -52,7 +53,7 @@ public class Program
         })
         .WithName("GetWeatherForecast");
 
-        app.MapGet("/hello", () => "Hello from your Azure API running .NET 10. Does this work with the deploy hook?");
+        app.MapGet("/hello", () => "Hello from your Azure API running .NET 10");
 
         app.Run();
     }
